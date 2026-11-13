@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Рождественский Подарок — сбор на подарки детям</title>
+<meta name="description" content="Программа «Рождественский Подарок»: собираем на 150 подарков для детей, чьи родители находятся в исправительных учреждениях.">
+<meta property="og:title" content="Рождественский Подарок">
+<meta property="og:description" content="Сделаем чудо своими руками: 150 подарков для детей, которые ждут маму или папу.">
+<meta property="og:image" content="assets/hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#E45225;--accent-dark:#B83A16;--ink:#1F2A24;--ink-2:#3A453E;--muted:#5A625C;--ground:#FBF8F3;--line:#E6DED0;--pine:#22382D;--gold:#E2B85C;--cream:#F3EEE4}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:Montserrat,system-ui,sans-serif;font-size:18px;line-height:1.6}
+a{color:var(--accent)}a:hover{color:var(--accent-dark)}
+img{max-width:100%}
+.wrap{max-width:1200px;margin:0 auto;padding-left:24px;padding-right:24px}
+.eyebrow{font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.h2{margin:0;font-weight:700;font-size:40px;line-height:1.15;letter-spacing:-.02em}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 28px;border-radius:999px;font-weight:700;text-decoration:none}
+.btn-accent{background:var(--accent);color:#fff}.btn-accent:hover{background:var(--accent-dark);color:#fff}
+.btn-ghost{border:1.5px solid #fff;color:#fff}.btn-ghost:hover{background:rgba(255,255,255,.12);color:#fff}
+
+/* Подменю */
+.subnav{position:sticky;top:0;z-index:5;background:var(--ground);border-bottom:1px solid var(--line)}
+.subnav .wrap{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:4px;padding-top:12px;padding-bottom:12px;font-size:15px;font-weight:600}
+.subnav a{color:var(--ink);text-decoration:none;padding:12px 14px;border-radius:999px}
+.subnav a:hover{background:#F0E9DD}
+.subnav a.cta{color:#fff;background:var(--accent);padding:12px 20px;margin-left:8px}
+
+/* Первый экран */
+.hero{position:relative;min-height:820px;display:flex;align-items:flex-end;overflow:hidden;background:#2F3D35;color:#fff}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-shade-x{position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,22,18,.7) 0%,rgba(14,22,18,.35) 45%,rgba(14,22,18,0) 70%)}
+.hero-shade-y{position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,22,18,0) 35%,rgba(14,22,18,.5) 70%,rgba(14,22,18,.88) 100%)}
+.hero-inner{position:relative;width:100%;padding-top:160px;padding-bottom:72px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:48px;align-items:end}
+.hero-text{display:flex;flex-direction:column;gap:24px}
+.hero h1{margin:0;line-height:0}
+.hero h1 img{display:block;width:100%;max-width:374px;height:auto}
+.hero-lead{margin:0;font-size:22px;line-height:1.55;max-width:540px;color:#EDE8DF}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+.progress-wrap{display:flex;justify-content:flex-end}
+.progress-card{width:100%;max-width:420px;background:#fff;color:var(--ink);border-radius:24px;padding:24px 28px;display:flex;flex-direction:column;gap:14px}
+.progress-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px;font-size:15px;color:var(--muted)}
+.progress-sum{font-size:36px;font-weight:700;line-height:1}
+.bar{height:10px;border-radius:999px;background:#F0E9DD;overflow:hidden}
+.bar span{display:block;height:100%;border-radius:999px;background:var(--accent);width:0}
+.progress-note{font-size:15px;color:var(--muted)}
+
+/* Моя мама */
+.mama .wrap{padding-top:112px;padding-bottom:112px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:56px;align-items:start}
+.mama h2{margin:0;font-weight:700;font-size:44px;line-height:1.15;letter-spacing:-.02em}
+.mama h2 em{color:var(--accent)}
+.mama .text{display:flex;flex-direction:column;gap:20px;font-size:20px;line-height:1.65;color:var(--ink-2)}
+.mama p,.about p,.goal p,.help p{margin:0}
+
+/* О проекте */
+.about{background:var(--pine);color:var(--cream)}
+.about .wrap{padding-top:112px;padding-bottom:240px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:48px;align-items:start}
+.about .eyebrow{color:var(--gold)}
+.about .head{display:flex;flex-direction:column;gap:16px}
+.about .text{display:flex;flex-direction:column;gap:20px;font-size:20px;color:#E4DDCF}
+.gift{position:relative;z-index:1;max-width:810px;margin:-200px auto 0;padding:0 24px}
+.gift img{display:block;width:100%;height:auto}
+
+/* Как мы это делаем */
+.how{padding-top:48px;padding-bottom:112px;display:flex;flex-direction:column;gap:48px}
+.how .head{display:flex;flex-direction:column;gap:16px;max-width:720px}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:20px}
+.step{background:#fff;border:1px solid var(--line);border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:16px}
+.step-top{display:flex;justify-content:space-between;align-items:center}
+.step-icon{width:52px;height:52px;border-radius:16px;background:#FCEAE3;color:var(--accent);display:flex;align-items:center;justify-content:center}
+.step-num{font-weight:700;font-size:24px;color:#B5A88F}
+.step h3{margin:0;font-size:20px;line-height:1.3;font-weight:700}
+.step p{margin:0;font-size:16px;color:var(--muted)}
+.outcomes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:20px}
+.outcome{border-radius:24px;background:#F3ECE0;padding:32px;display:flex;flex-direction:column;gap:8px}
+.outcome .label{font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#6B6150}
+.outcome .value{font-weight:600;font-size:26px;line-height:1.3}
+.miracle{margin:0;font-size:18px;color:var(--muted);text-align:center}
+
+/* Цель сбора */
+.goal{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.goal .wrap{padding-top:112px;padding-bottom:112px;display:flex;flex-direction:column;gap:56px}
+.goal .head{display:flex;flex-direction:column;gap:16px;max-width:760px}
+.goal .head p{font-size:20px;color:var(--ink-2)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));border:1px solid var(--line);border-radius:28px;overflow:hidden}
+.stat{padding:40px;display:flex;flex-direction:column;gap:8px;border-right:1px solid var(--line)}
+.stat:last-child{border-right:0;background:var(--ground)}
+.stat .num{font-size:48px;font-weight:800;line-height:1;letter-spacing:-.02em}
+.stat .num.accent{color:var(--accent)}
+.stat .cap{font-size:17px;color:var(--muted)}
+.goal .bottom{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:32px;font-size:20px;color:var(--ink-2)}
+.goal .bottom strong{font-weight:600;color:var(--ink)}
+
+/* Помочь */
+.help{padding-top:112px;padding-bottom:112px}
+.help-card{background:var(--pine);color:var(--cream);border-radius:36px;padding:64px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:56px;align-items:start}
+.help-card .head{display:flex;flex-direction:column;gap:20px}
+.help-card .eyebrow{color:var(--gold)}
+.help-card .head p{font-size:20px;color:#E4DDCF}
+.donate{display:flex;flex-direction:column;gap:20px}
+.donate-label{font-size:15px;font-weight:600;color:#CFC7B8}
+.amounts{display:flex;flex-wrap:wrap;gap:10px}
+.amounts button{min-height:48px;padding:0 20px;border-radius:999px;font-family:inherit;font-size:16px;font-weight:700;cursor:pointer;background:transparent;color:var(--cream);border:1.5px solid #5C7466}
+.amounts button:hover{border-color:var(--cream)}
+.amounts button[aria-pressed="true"]{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+.amount-box{border-radius:20px;background:#2C4638;padding:20px 24px;display:flex;flex-direction:column;gap:4px}
+.amount-sum{font-weight:700;font-size:32px;line-height:1.15}
+.amount-hint{font-size:16px;color:#CFC7B8}
+.btn-gold{min-height:60px;background:var(--gold);color:var(--ink);font-size:18px}.btn-gold:hover{background:#EBC877;color:var(--ink)}
+.requisites{border:1.5px dashed #5C7466;border-radius:20px;padding:20px 24px;font-size:15px;color:#CFC7B8;text-align:center}
+
+/* Финал */
+.final{max-width:900px;padding-top:32px;padding-bottom:128px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:28px}
+.final p{margin:0;font-size:22px;line-height:1.6;color:var(--ink-2)}
+.final h2{margin:0;font-weight:800;font-size:44px;line-height:1.15;letter-spacing:-.02em}
+.final h2 em{color:var(--accent)}
+
+@media (max-width:640px){
+  body{font-size:17px}
+  .hero{min-height:auto}
+  .hero-inner{padding-top:120px;padding-bottom:40px;gap:32px}
+  .hero h1 img{max-width:280px}
+  .hero-lead{font-size:19px}
+  .h2,.mama h2{font-size:30px}
+  .final h2{font-size:32px}
+  .mama .wrap,.goal .wrap{padding-top:72px;padding-bottom:72px}
+  .about .wrap{padding-top:72px;padding-bottom:160px}
+  .gift{margin-top:-130px}
+  .how{padding-bottom:72px}
+  .mama .text,.about .text,.goal .head p,.goal .bottom,.help-card .head p{font-size:18px}
+  .stat{border-right:0;border-bottom:1px solid var(--line);padding:28px}
+  .stat:last-child{border-bottom:0}
+  .help{padding-top:72px;padding-bottom:72px}
+  .help-card{padding:32px 20px;border-radius:28px}
+  .subnav .wrap{font-size:14px}
+  .subnav a{padding:10px 10px}
+}
+</style>
+</head>
+<body>
+
+<nav class="subnav" aria-label="Разделы страницы">
+  <div class="wrap">
+    <a href="#about">О&nbsp;проекте</a>
+    <a href="#how">Как&nbsp;мы это делаем</a>
+    <a href="#goal">Цель сбора</a>
+    <a href="#help" class="cta">Помочь</a>
+  </div>
+</nav>
+
+<main>
+<section class="hero" aria-label="Первый экран">
+  <img class="hero-bg" src="assets/hero.jpg" alt="Счастливая девочка смеётся на празднике">
+  <div class="hero-shade-x" aria-hidden="true"></div>
+  <div class="hero-shade-y" aria-hidden="true"></div>
+  <div class="wrap hero-inner">
+    <div class="hero-text">
+      <h1><img src="assets/logo.png" alt="Программа «Рождественский Подарок»" width="1029" height="1338"></h1>
+      <p class="hero-lead">Друзья, у&nbsp;нас с&nbsp;вами есть удивительная возможность сделать чудо своими руками.</p>
+      <div class="hero-actions">
+        <a href="#help" class="btn btn-accent">Подарить чудо
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </a>
+        <a href="#how" class="btn btn-ghost">Как это работает</a>
+      </div>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-card">
+        <div class="progress-top">
+          <div style="font-weight:600">Собрано</div>
+          <div>цель&nbsp;— <b style="color:var(--ink)">225&nbsp;000&nbsp;₽</b></div>
+        </div>
+        <div class="progress-sum"><span id="collected">0</span>&nbsp;₽</div>
+        <div class="bar" role="progressbar" aria-label="Прогресс сбора" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="bar"><span id="barFill"></span></div>
+        <div class="progress-note"><span id="covered">0</span>&nbsp;из&nbsp;150&nbsp;подарков уже оплачено</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mama" aria-labelledby="mama">
+  <div class="wrap">
+    <h2 id="mama">Для&nbsp;них это просто <br><em>«моя мама»</em></h2>
+    <div class="text">
+      <p>За&nbsp;закрытыми дверями исправительных учреждений стоят не&nbsp;только те, кто оступился, но&nbsp;и&nbsp;их дети.</p>
+      <p>Дети, которые пишут письма, считают дни до&nbsp;встречи и&nbsp;верят, что их&nbsp;мама или папа обязательно исправится и&nbsp;вернется. Они не&nbsp;знают слов «осужденный»&nbsp;— для&nbsp;них это просто «моя мама».</p>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">О&nbsp;проекте</div>
+      <h2 class="h2">Мост между прошлым и&nbsp;будущим</h2>
+    </div>
+    <div class="text">
+      <p>Проект «Рождественский Подарок»&nbsp;— это мост между прошлым и&nbsp;будущим тысяч семей.</p>
+      <p>Мы&nbsp;хотим помочь этим семьям восстановить утраченные связи и&nbsp;подарить родителям, находящимся под&nbsp;стражей, самый сильный мотиватор к&nbsp;изменению жизни&nbsp;— возможность восстановить отношения с&nbsp;детьми.</p>
+    </div>
+  </div>
+</section>
+
+<div class="gift">
+  <img src="assets/gift.webp" alt="Подарочный пакет с ангелом и рождественская открытка" width="1800" height="1208" loading="lazy">
+</div>
+
+<section class="wrap how" id="how">
+  <div class="head">
+    <div class="eyebrow">Как&nbsp;мы это делаем</div>
+    <h2 class="h2">Четыре шага к&nbsp;одной встрече</h2>
+  </div>
+  <ol class="steps">
+    <li class="step">
+      <div class="step-top">
+        <div class="step-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <span class="step-num">01</span>
+      </div>
+      <h3>Мотивационные встречи</h3>
+      <p>Проводим встречи с&nbsp;осужденными родителями.</p>
+    </li>
+    <li class="step">
+      <div class="step-top">
+        <div class="step-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
+        <span class="step-num">02</span>
+      </div>
+      <h3>Открытка и&nbsp;подарок</h3>
+      <p>Помогаем подписать открытку для&nbsp;ребенка и&nbsp;выбрать подарок.</p>
+    </li>
+    <li class="step">
+      <div class="step-top">
+        <div class="step-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v9H5v-9"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5C11 3 12 8 12 8s1-5 4.5-5a2.5 2.5 0 0 1 0 5"/></svg></div>
+        <span class="step-num">03</span>
+      </div>
+      <h3>Лично привозим детям</h3>
+      <p>Организаторы и&nbsp;добровольцы лично привозят подарки вместе с&nbsp;детскими Библиями.</p>
+    </li>
+    <li class="step">
+      <div class="step-top">
+        <div class="step-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></div>
+        <span class="step-num">04</span>
+      </div>
+      <h3>Ответы родителям</h3>
+      <p>Привозим папам и&nbsp;мамам рисунки, фото счастливых глаз и&nbsp;слова благодарности.</p>
+    </li>
+  </ol>
+  <div class="outcomes">
+    <div class="outcome"><div class="label">Детям</div><div class="value">Ощущение нужности</div></div>
+    <div class="outcome"><div class="label">Родителям</div><div class="value">Желание изменить свою жизнь и&nbsp;вернуться в&nbsp;семью</div></div>
+  </div>
+  <p class="miracle">Эта программа творит настоящие чудеса.</p>
+</section>
+
+<section class="goal" id="goal">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Цель сбора</div>
+      <h2 class="h2">Чтобы этот мост состоялся, нам нужна ваша помощь</h2>
+      <p>Мы&nbsp;объявляем сбор средств на&nbsp;покупку подарков для&nbsp;детей участников проекта.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="num accent">150</div><div class="cap">подарков для&nbsp;детей</div></div>
+      <div class="stat"><div class="num">1&nbsp;500&nbsp;₽</div><div class="cap">стоимость одного подарка</div></div>
+      <div class="stat"><div class="num">225&nbsp;000&nbsp;₽</div><div class="cap">общая сумма сбора</div></div>
+    </div>
+    <div class="bottom">
+      <p>Каждый собранный рубль пойдет на&nbsp;то, чтобы под&nbsp;елкой ребенка, чья мама сейчас далеко, появилась та самая заветная коробка с&nbsp;бантом.</p>
+      <p><strong>Мы&nbsp;хотим, чтобы ни&nbsp;один ребенок, который ждет папу, не&nbsp;остался без&nbsp;рождественского чуда.</strong></p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap help" id="help">
+  <div class="help-card">
+    <div class="head">
+      <div class="eyebrow">Помочь</div>
+      <h2 class="h2">Что&nbsp;вы можете сделать прямо сейчас?</h2>
+      <p>Перевести любую сумму&nbsp;— даже 100&nbsp;рублей это уже вклад в&nbsp;чью-то улыбку.</p>
+    </div>
+    <div class="donate">
+      <div class="donate-label" id="amountsLabel">Выберите сумму</div>
+      <div class="amounts" role="group" aria-labelledby="amountsLabel">
+        <button type="button" data-amount="100" aria-pressed="false">100&nbsp;₽</button>
+        <button type="button" data-amount="500" aria-pressed="false">500&nbsp;₽</button>
+        <button type="button" data-amount="1500" aria-pressed="true">1&nbsp;500&nbsp;₽ · 1&nbsp;подарок</button>
+        <button type="button" data-amount="3000" aria-pressed="false">3&nbsp;000&nbsp;₽</button>
+        <button type="button" data-amount="7500" aria-pressed="false">7&nbsp;500&nbsp;₽</button>
+      </div>
+      <div class="amount-box" aria-live="polite">
+        <div class="amount-sum"><span class="js-amount">1&nbsp;500</span>&nbsp;₽</div>
+        <div class="amount-hint" id="amountHint">Это 1&nbsp;подарок для&nbsp;ребенка, который ждет маму или папу</div>
+      </div>
+      <a href="#rekvizity" class="btn btn-gold">Перевести <span class="js-amount">1&nbsp;500</span>&nbsp;₽</a>
+      <div class="requisites" id="rekvizity">[РЕКВИЗИТЫ / QR-КОД / ССЫЛКА НА ОПЛАТУ]</div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap final">
+  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#E45225" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l2.9 6.9L22 9.6l-5.4 4.8L18.2 22 12 18.3 5.8 22l1.6-7.6L2 9.6l7.1-.7z"/></svg>
+  <p>Давайте вместе подарим детям тепло, веру в&nbsp;чудо и&nbsp;надежду на&nbsp;то, что их&nbsp;семья может стать ближе, несмотря ни&nbsp;на&nbsp;что.</p>
+  <h2>Сделаем этот Рождественский подарок <em>по-настоящему теплым!</em></h2>
+  <a href="#help" class="btn btn-accent">Подарить чудо</a>
+</section>
+</main>
+
+<script>
+  // ▼ Обновляйте эту цифру по мере сбора
+  var COLLECTED = 0;
+
+  var GOAL = 225000, GIFT = 1500, NB = ' ';
+  function fmt(n){ return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, NB); }
+  function plural(n, one, few, many){
+    var a = n % 10, b = n % 100;
+    if (a === 1 && b !== 11) return one;
+    if (a >= 2 && a <= 4 && (b < 12 || b > 14)) return few;
+    return many;
+  }
+
+  // Прогресс сбора
+  var collected = Math.max(0, Math.min(GOAL, COLLECTED));
+  var pct = Math.round(collected / GOAL * 100);
+  document.getElementById('collected').textContent = fmt(collected);
+  document.getElementById('covered').textContent = Math.floor(collected / GIFT);
+  document.getElementById('barFill').style.width = pct + '%';
+  document.getElementById('bar').setAttribute('aria-valuenow', pct);
+
+  // Выбор суммы
+  var buttons = document.querySelectorAll('.amounts button');
+  var amountEls = document.querySelectorAll('.js-amount');
+  var hint = document.getElementById('amountHint');
+  function select(amount){
+    buttons.forEach(function(b){ b.setAttribute('aria-pressed', String(+b.dataset.amount === amount)); });
+    amountEls.forEach(function(el){ el.textContent = fmt(amount); });
+    var g = Math.floor(amount / GIFT);
+    hint.textContent = g >= 1
+      ? 'Это ' + g + NB + plural(g, 'подарок', 'подарка', 'подарков') + ' для' + NB + 'ребенка, который ждет маму или папу'
+      : 'Уже вклад в' + NB + 'чью-то улыбку';
+  }
+  buttons.forEach(function(b){ b.addEventListener('click', function(){ select(+b.dataset.amount); }); });
+</script>
+</body>
+</html>
